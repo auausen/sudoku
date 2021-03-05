@@ -70,6 +70,7 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
                              double height,
                              double width) {
         Rectable line = new Rectable();
+        // test
 
         line.setX(x);
         line.setY(y);
