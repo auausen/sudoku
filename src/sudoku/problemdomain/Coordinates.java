@@ -9,7 +9,6 @@ public class Coordinates {
     public Coordinates(int x, int y) {
         this.x = x;
         this.y = y;
-
     }
 
     public int getX() {
@@ -21,18 +20,16 @@ public class Coordinates {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Coordinates that = (Coordinates) o;
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Coordinates that = (Coordinates) obj;
         return x == that.x &&
                 y == that.y;
     }
 
     @Override
-    public int hashCode(){
-        return Objects.hash(x,y);
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
-
-
 }
