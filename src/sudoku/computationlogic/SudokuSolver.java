@@ -1,6 +1,7 @@
 package sudoku.computationlogic;
 
 import sudoku.problemdomain.Coordinates;
+import static sudoku.problemdomain.SudokuGame.GRID_BOUNDARY;
 
 public class SudokuSolver {
 

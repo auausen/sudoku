@@ -1,14 +1,15 @@
 package sudoku.problemdomain;
 
 import java.io.Serializable;
-
+import sudoku.computationlogic.SudokuUtilities;
 import sudoku.constants.GameState;
+
 
 public class SudokuGame {
     private final GameState gameState;
     private final int[][] gridState;
 
-    public static final GRID_BOUNDARY = 9;
+    public static final int GRID_BOUNDARY = 9;
 
     public SudokuGame(GameState gameState, int[][] gridState){
         this.gameState = gameState;
@@ -20,6 +21,10 @@ public class SudokuGame {
     }
 
     public int[][] getGridState() {
-        return SudokuUtilities.copyToNewArray();
+        return SudokuUtilities.copyToNewArray(gridState);
+    }
+
+    public int[][] getCopyOfGridState() {
+        return SudokuUtilities.copyToNewArray(gridState);
     }
 }

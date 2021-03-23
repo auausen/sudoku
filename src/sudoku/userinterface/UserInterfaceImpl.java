@@ -1,6 +1,6 @@
 package sudoku.userinterface;
 
-import com.sun.javafx.geom.Rectangle;
+import javafx.scene.shape.Rectangle;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
@@ -67,7 +67,7 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
             } else {
                 thickness = 2;
             }
-            Rectangle verticaLine = getLine(
+            Rectangle verticalLine = getLine(
                     xAndY + 64 * index,
                     BOARD_PADDING,
                     BOARD_X_AND_Y,
@@ -77,12 +77,12 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
             Rectangle horizontalLine = getLine(
                     BOARD_PADDING,
                     xAndY + 64 * index,
-                    thickness
+                    thickness,
                     BOARD_X_AND_Y
             );
 
             root.getChildren().addAll(
-                    verticaLine,
+                    verticalLine,
                     horizontalLine
             );
 
@@ -101,7 +101,7 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
         line.setHeight(height);
         line.setWidth(width);
 
-        line.setFill(Color.BLACK)
+        line.setFill(Color.BLACK);
         return line;
     }
 
@@ -224,7 +224,7 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
     }
 
     @Override
-    public void showDialog(String Message) {
+    public void showDialog(String message) {
         Alert dialog = new Alert(Alert.AlertType.CONFIRMATION, message, ButtonType.OK);
         dialog.showAndWait();
 
@@ -239,9 +239,8 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
 
     @Override
     public void handle(KeyEvent event) {
-        if (KeyEvent.getEventType() == KeyEvent.KEY_PRESSED) {
-            if(
-                    KeyEvent.getText().matches("[0-9]")
+        if (event.getEventType() == KeyEvent.KEY_PRESSED) {
+            if(event.getText().matches("[0-9]")
             ){
                 int value= Integer.parseInt(event.getText());
                 handleInput(value,event.getSource());
